@@ -1,0 +1,35 @@
+{
+  "name": "mumzworld-api-gateway-magento-auth-lambda",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "tsc -w",
+    "deploy": "npm run build && npm run package",
+    "package": "mkdir -p dist && cp package.json dist/ && cd dist && npm install --production && zip -r ../lambda-package.zip ."
+  },
+  "keywords": [
+    "lambda",
+    "authorizer",
+    "jwt",
+    "magento"
+  ],
+  "author": "",
+  "license": "ISC",
+  "description": "Lambda authorizer for validating Magento JWT tokens in API Gateway",
+  "dependencies": {
+    "@aws-sdk/client-secrets-manager": "^3.758.0",
+    "aws-sdk": "^2.1692.0",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.147",
+    "@types/jest": "^29.5.14",
+    "@types/jsonwebtoken": "^9.0.9",
+    "@types/node": "^22.13.10",
+    "dotenv": "^16.4.7",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.6",
+    "typescript": "^5.8.2"
+  }
+}
